@@ -1,11 +1,7 @@
 body {
-    /*Image only BG fallback*/
     font-family: monospace;
-    /*background = gradient + image pattern combo*/
     background-color: #05b7d9;
 }
-
-/* ball starting stylings ------------------------------- */
 
 .main-container {
     display: flex;
@@ -15,12 +11,14 @@ body {
     height: 100vh;
 }
 
+/* ball starting stylings ------------------------------- */
+
 .magic-ball {
     height: 400px;
     width: 400px;
     background: rgb(30, 30, 30);
     border-radius: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     box-shadow: inset -10px 10px 50px rgba(255, 255, 255, 0.4), inset 5px -5px 50px rgba(0, 0, 0, 1),
         inset 50px -50px 200px rgba(0, 0, 0, 1), inset 0px -20px 20px rgba(60, 0, 60, 1);
@@ -43,6 +41,7 @@ body {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
 .response {
     position: absolute;
     background: linear-gradient(45deg, rgba(20, 0, 20, 1) 0%, rgba(40, 0, 20, 1) 100%);
@@ -65,15 +64,11 @@ body {
     -webkit-transform: translate(-50%, -50%) rotate(5deg);
     transform: translate(-50%, -50%) rotate(5deg);
     position: absolute;
-    width: 0px;
-    height: 0px;
     left: 50%;
     top: 60%;
     border-left: 55px solid transparent;
     border-right: 55px solid transparent;
-    border-top: 90px solid rgba(60, 10, 120, 0);
     opacity: 0;
-    transition: ease-in all 0.2s;
 }
 
 .textbox {
@@ -93,12 +88,14 @@ body {
     opacity: 0;
     transition: ease-in all 0.2s;
 }
+
 .magic-ball .textbox {
     opacity: 1;
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     transform: translate(-50%, -50%) rotate(0deg);
     transition: ease-in all 0.2s;
 }
+
 .magic-ball .triangle {
     border-top: 90px solid rgba(4, 99, 191, 0.9);
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
@@ -142,6 +139,7 @@ body {
     position: relative;
     margin-bottom: 30px;
 }
+
 input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
@@ -151,6 +149,7 @@ input {
     border-bottom: 1px solid #757575;
     color: black;
 }
+
 input:focus {
     outline: none;
 }
@@ -171,7 +170,6 @@ label {
 /* active state */
 input ~ label {
     top: -20px;
-    font-size: 14px;
     color: rgba(4, 99, 191, 0.9);
 }
 
@@ -188,9 +186,6 @@ input ~ label {
     bottom: 1px;
     position: absolute;
     background: rgba(4, 99, 191, 0.9);
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
 }
 
 /* active state  */
@@ -199,23 +194,6 @@ input:focus ~ .bar:after {
     width: 50%;
 }
 
-/* HIGHLIGHTER ================================== */
-.highlight {
-    position: absolute;
-    height: 60%;
-    width: 100px;
-    top: 25%;
-    left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-/* active state */
-/* input:focus ~ .highlight {
-    -webkit-animation: inputHighlighter 0.3s ease;
-    -moz-animation: inputHighlighter 0.3s ease;
-    animation: inputHighlighter 0.3s ease;
-} */
 input[type='text'] {
     background: transparent;
     border: none;
@@ -223,17 +201,9 @@ input[type='text'] {
 
 /* Button & Error ================ */
 
-.button-error-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .button {
     border: 0;
-    outline: none;
     border-radius: 0;
-    padding: 15px 0;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
