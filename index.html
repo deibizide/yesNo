@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Yes No API</title>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="group">
+                <input type="text" required onkeypress="handleKeyEnter(event)"  value=""/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Ask Me Anything...</label>
+                <div class="error-msg"></div>
+            </div>
+            <div class="button-error-container">
+                <button type="submit" class="button button-block" />Get Answer</button>
+            </div>
+            <div class="magic-ball-container">
+                <div class="magic-ball">
+                    <!-- <div class="inner-grad"></div> -->
+                    <div class="response">
+                            <div class="triangle"></div>
+                            <div class="textbox"></div>
+                            <div class="landing-triangle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>

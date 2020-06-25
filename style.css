@@ -1,0 +1,254 @@
+body {
+    /*Image only BG fallback*/
+    font-family: monospace;
+    /*background = gradient + image pattern combo*/
+    background-color: #05b7d9;
+}
+
+/* ball starting stylings ------------------------------- */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.magic-ball {
+    height: 400px;
+    width: 400px;
+    background: rgb(30, 30, 30);
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset -10px 10px 50px rgba(255, 255, 255, 0.4), inset 5px -5px 50px rgba(0, 0, 0, 1),
+        inset 50px -50px 200px rgba(0, 0, 0, 1), inset 0px -20px 20px rgba(60, 0, 60, 1);
+}
+
+.inner-grad {
+    position: absolute;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(242, 242, 242, 0.2) 7%,
+        rgba(30, 30, 30, 0.1) 30%,
+        rgba(30, 30, 30, 0) 100%
+    );
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    left: 60%;
+    top: 30%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.response {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(20, 0, 20, 1) 0%, rgba(40, 0, 20, 1) 100%);
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    border: solid 4px rgba(20, 20, 20, 0.8);
+    box-shadow: 10px -10px 10px rgba(20, 20, 20, 0.6), 10px -10px 1px rgba(20, 20, 20, 0.5),
+        -10px -10px 1px rgba(20, 20, 20, 0.5), 10px 10px 1px rgba(50, 50, 50, 0.5), -10px 10px 1px rgba(50, 50, 50, 0.5),
+        8px -10px 10px rgba(20, 20, 20, 0.6), -8px 10px 10px rgba(60, 60, 60, 0.6),
+        inset -10px 10px 40px rgba(200, 0, 20, 0.05), inset 10px -10px 40px rgba(20, 0, 200, 0.1);
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.triangle,
+.landing-triangle {
+    -webkit-transform: translate(-50%, -50%) rotate(5deg);
+    transform: translate(-50%, -50%) rotate(5deg);
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: 50%;
+    top: 60%;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-top: 90px solid rgba(60, 10, 120, 0);
+    opacity: 0;
+    transition: ease-in all 0.2s;
+}
+
+.textbox {
+    font: 400 20px Lato;
+    text-shadow: 1px 1px 2px rgba(40, 0, 200, 0.8);
+    color: rgba(240, 220, 240, 0.8);
+    text-align: center;
+    line-height: 1.1;
+    -webkit-transform: translate(-50%, -50%) rotate(5deg);
+    transform: translate(-50%, -50%) rotate(5deg);
+    position: absolute;
+    text-transform: uppercase;
+    width: 55px;
+    height: 60px;
+    left: 50%;
+    top: 55%;
+    opacity: 0;
+    transition: ease-in all 0.2s;
+}
+.magic-ball .textbox {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: ease-in all 0.2s;
+}
+.magic-ball .triangle {
+    border-top: 90px solid rgba(4, 99, 191, 0.9);
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+    transition: ease-in all 0.2s;
+}
+
+.face {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin-bottom: 30px;
+}
+input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    color: black;
+}
+input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: rgba(4, 99, 191, 0.9);
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+.bar {
+    content: '';
+    height: 2px;
+    width: 100%;
+    bottom: 1px;
+    position: absolute;
+    background: rgba(4, 99, 191, 0.9);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state  */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+/* input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+} */
+input[type='text'] {
+    background: transparent;
+    border: none;
+}
+
+/* Button & Error ================ */
+
+.button-error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(4, 99, 191, 0.9);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 60px;
+}
+
+.err-txt {
+    position: absolute;
+    margin: 0px;
+    background-color: white;
+    padding: 10px;
+    right: 55px;
+    top: 125px;
+}
